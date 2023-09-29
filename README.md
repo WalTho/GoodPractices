@@ -1,99 +1,132 @@
-# GoodPractices
-## Principes et bonnes pratiques
+# Guide des bonnes pratiques en développement
 
-Dans le développement, nous adhérons aux bonnes pratiques et principes suivants pour garantir un code propre, maintenable et évolutif :
+## Principes essentiels de développement
 
+Afin de garantir un code propre, maintenable et évolutif, nous suivons les principes suivants :
 
 ### YAGNI (You Ain't Gonna Need It)
-
-Ce principe consiste à éviter d'ajouter des fonctionnalités ou du code en prévision de besoins futurs.
-Nous nous concentrons uniquement sur les fonctionnalités et les exigences actuelles du projet pour éviter la complexité et le gaspillage de temps inutiles.
-
+- **Définition** : Ne développez pas de fonctionnalités en anticipant des besoins futurs non confirmés.
+- **Pratique** : Concentrez-vous sur les besoins immédiats. Cela évite la surcomplexité et le surdéveloppement.
 
 ### DRY (Don't Repeat Yourself)
-
-DRY est un principe fondamental de développement qui vise à réduire la répétition du code.
-Nous nous efforçons de créer des composants et des fonctions réutilisables pour éviter de dupliquer des parties similaires du code dans différentes parties de l'application.
-
+- **Définition** : Chaque pièce de connaissance ou logique doit se trouver en un seul endroit.
+- **Pratique** : Si vous trouvez des portions de code identiques ou similaires, considérez la création d'une fonction ou d'un composant réutilisable.
 
 ### KISS (Keep It Simple, Stupid)
+- **Définition** : Les solutions simples sont souvent les meilleures.
+- **Pratique** : Évitez d'over-engineer. Choisissez la solution la moins compliquée qui satisfait aux exigences.
 
-Ce principe encourage à garder les choses simples et à éviter les solutions complexes ou inutiles.
-Nous cherchons à rendre notre code clair et facile à comprendre pour les autres développeurs qui travaillent sur le projet.
+### SOLID: Principes de conception orientée objet
+- **Définition** : C'est un acronyme pour cinq principes qui aident à créer un code orienté objet facile à gérer et à maintenir.
+    - **S** - Single Responsibility Principle (SRP) : Une classe ne devrait avoir qu'une seule raison de changer.
+    - **O** - Open/Closed Principle : Les classes et les modules doivent être ouverts à l'extension mais fermés à la modification.
+    - **L** - Liskov Substitution Principle : Les objets d'une classe mère doivent pouvoir être remplacés par des objets d'une classe fille sans affecter la correctitude du programme.
+    - **I** - Interface Segregation Principle : Plusieurs interfaces spécifiques valent mieux qu'une seule interface générale.
+    - **D** - Dependency Inversion Principle : Les modules de haut niveau ne devraient pas dépendre des modules de bas niveau. Les deux devraient dépendre des abstractions.
 
+### Composition over Inheritance
+- **Définition** : Préférer la composition à l'héritage lors de la construction de classes ou de modules pour maximiser la réutilisabilité et la flexibilité.
+- **Pratique** : Plutôt que de créer des hiérarchies complexes basées sur l'héritage, assemblez des comportements plus simples en "composant" des objets.
 
-## Git & GitHub
+### Law of Demeter (LoD) ou "Principle of Least Knowledge"
+- **Définition** : Un objet ne devrait avoir qu'une connaissance limitée des autres objets avec lesquels il interagit.
+- **Pratique** : Cela encourage la faible couplage entre les classes et favorise la modularité.
 
-### Qu'est-ce que Git?
-
-**Git** est un système de gestion de versions décentralisé qui permet à plusieurs personnes de travailler sur un même projet sans se gêner mutuellement. Chaque développeur travaille sur sa propre copie et peut fusionner ses modifications avec le reste du projet à sa convenance.
-
-**Avantages de Git** :
-- Suivi des modifications : chaque changement est associé à un "commit" avec un message descriptif.
-- Gestion des branches : on peut créer des branches pour développer des fonctionnalités en parallèle.
-- Résolution des conflits : Git offre des outils pour fusionner des modifications conflictuelles.
-
-### Qu'est-ce que GitHub?
-
-**GitHub** est une plateforme d'hébergement de code qui utilise Git pour le versionnement. Elle propose une interface web pour les dépôts Git, avec des fonctionnalités additionnelles :
-- Gestion des bugs et demandes d'amélioration avec les "issues".
-- Contribution à d'autres projets via les "pull requests".
-- Outils pour l'intégration continue.
-
-### Comment installer Git?
-
-- **Windows** : [Téléchargez l'exécutable](https://git-scm.com/download/win) et suivez les étapes d'installation.
-- **macOS** : Utilisez Homebrew (`brew install git`) ou [téléchargez l'exécutable](https://git-scm.com/download/mac).
-- **Linux (Debian/Ubuntu)** : Dans le terminal, tapez `sudo apt-get install git`.
-
-**Après l'installation**, configurez votre identité Git :
-```bash
-git config --global user.name "Votre nom"
-git config --global user.email "votre.email@example.com"
-```
+### Code comments
+- **Définition** : Des commentaires pour clarifier le code, pas pour expliquer du "mauvais code".
+- **Pratique** : Utilisez des commentaires pour documenter l'intention, les décisions importantes et les comportements complexes. Si vous ressentez le besoin de commenter pour expliquer ce que fait le code, envisagez de réviser votre code.
 
 ---
 
-## Routine & Conventions Github 
+## Introduction à Git & GitHub
 
-Nous privilégions le travail en **micro-features** offrant une meilleure organisation, une réduction des conflits et une amélioration de la qualité du code.
+### Git : Votre outil de suivi de version
 
-### Qu'est-ce que le travail en micro-features ?
+1. **Qu'est-ce que Git?** 
+   - Git est comme un grand livre d'historique pour votre projet. Chaque changement apporté est une nouvelle page dans ce livre.
+   
+2. **Comment l'installer?**
+   
+   - **Windows**: 
+     1. Ouvrez votre navigateur.
+     2. Allez sur [ce lien pour télécharger Git](https://git-scm.com/download/win).
+     3. Exécutez l'exécutable téléchargé et suivez les étapes.
+     
+   - **macOS**: 
+     1. Ouvrez le terminal.
+     2. Si vous avez Homebrew, tapez `brew install git`.
+     3. Sinon, allez sur [ce lien pour télécharger Git](https://git-scm.com/download/mac) et suivez les étapes.
+     
+   - **Linux (Debian/Ubuntu)**:
+     1. Ouvrez le terminal.
+     2. Tapez `sudo apt-get install git` et appuyez sur Enter.
 
-Le principe est le suivant :
+3. **Configuration initiale**:
+   1. Ouvrez le terminal ou la ligne de commande.
+   2. Tapez les commandes suivantes, en remplaçant par vos informations:
+      ```bash
+      git config --global user.name "Votre nom"
+      git config --global user.email "votre.email@example.com"
+      ```
 
-1. **Découpage du projet** : Division en petites fonctionnalités distinctes.
-2. **Branches dédiées** : Une branche spécifique pour chaque micro-feature.
-3. **Travail en équipe** : Chaque développeur travaille sur une micro-feature différente.
-4. **Révisions et tests** : Avant d'intégrer une micro-feature, elle est soumise à une revue et des tests.
-5. **Intégration continue** : Chaque micro-feature est intégrée et testée automatiquement avant d'être fusionnée.
-6. **Flexibilité** : Facilité d'expérimentation et d'itération.
+### GitHub : Votre espace de collaboration
 
-### Avant de créer une branche ou un commit
+1. **Qu'est-ce que GitHub?**
+   - C'est une plateforme qui héberge votre livre (projet) Git pour que d'autres puissent le voir, le lire et y contribuer.
+   
+2. **Premiers pas avec GitHub**:
+   1. Ouvrez votre navigateur.
+   2. Allez sur [GitHub](https://github.com/).
+   3. Créez un compte ou connectez-vous.
+   4. Une fois connecté, vous pouvez créer un nouveau dépôt ou "repository" pour héberger votre projet.
 
-Toujours synchroniser votre copie locale avec la branche de développement :
-```bash
-git fetch
-git pull
-```
+---
 
-### Nommer branches et commits
+## Votre routine GitHub
 
-Pour un nouveau sujet, créez une nouvelle branche :
+### Travailler avec des micro-fonctionnalités
 
-```bash
-git checkout -b feat/name-of-the-branch
-```
-Les noms sont en anglais, en minuscule, et le "type" peut varier (`feat`, `fix`, `refactor`, `test`).
+1. **Découpage du projet**:
+   - Pensez à votre projet comme à un puzzle. Chaque pièce est une micro-fonctionnalité.
 
-Pour créer un commit :
-```bash
-git add <file-name>   # ou `git add .` pour tous les fichiers
-git commit -m "feat(topic): description"
-git push
-```
+2. **Création d'une branche pour chaque pièce (micro-fonctionnalité)**:
+   1. Assurez-vous que votre version est à jour:
+      ```bash
+      git fetch
+      git pull
+      ```
+   2. Créez une nouvelle branche:
+      ```bash
+      git checkout -b feat/name-of-the-feature
+      ```
+
+3. **Travailler, vérifier, intégrer**:
+   - Travaillez sur votre pièce.
+   - Une fois terminé, vérifiez et testez-le.
+   - Intégrez-le au puzzle principal (le projet).
+
+### Comment nommer et sauvegarder vos changements
+
+1. Pour enregistrer un changement:
+   1. Ouvrez le terminal ou la ligne de commande dans votre projet.
+   2. Ajoutez les fichiers modifiés:
+      ```bash
+      git add nom_du_fichier  # ou `git add .` pour ajouter tous les changements
+      ```
+   3. Sauvegardez le changement avec un message descriptif:
+      ```bash
+      git commit -m "type(sujet): description courte du changement"
+      ```
+   4. Envoyez vos changements à GitHub:
+      ```bash
+      git push
+      ```
+
+**Note**: Pour les types de messages (`type`), utilisez `feat` pour les nouvelles fonctionnalités, `fix` pour les corrections, `refactor` pour les modifications structurelles et `test` pour les tests.
 
 **Liens utiles**:
-- [git-commitizen](https://github.com/commitizen/cz-cli)
-- [Documentation Git](http://git-scm.com/book/fr/v2)
-- [Git Cheatsheet](https://ndpsoftware.com/git-cheatsheet.html)
+- [git-commitizen pour standardiser vos messages](https://github.com/commitizen/cz-cli)
+- [Documentation Git pour approfondir vos connaissances](http://git-scm.com/book/fr/v2)
+- [Git Cheatsheet pour une référence rapide](https://ndpsoftware.com/git-cheatsheet.html)
+
+---
